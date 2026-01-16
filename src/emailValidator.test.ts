@@ -32,5 +32,12 @@ describe('Email Validator - IPL Social', () => {
   test('devrait rejeter un email sans texte avant le @', () => {
     expect(validateEmail('@example.com')).toBe(false);
   });
+test('devrait rejeter un email sans texte après le @', () => {
+    expect(validateEmail('test@')).toBe(false);
+  });
 
+  test('devrait accepter des emails valides', () => {
+    expect(validateEmail('user@example.com')).toBe(true);
+    expect(validateEmail('firstname.lastname@vinci.be')).toBe(true);
+  });
 });
